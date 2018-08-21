@@ -116,21 +116,21 @@ int main()
 
 	// printing the list with all elements
 	print_list(head);
-	
-	// searching an element in linked list iterattivley
+
+	// searching an element in linked list iterattively
 	linked_list_search(head, 21)? printf("Yes\n") : printf("No\n");
 
 
-	// searching an element in linked list iterattivley
+	// searching an element in linked list iterattively
 	linked_list_search(head, 7)? printf("Yes\n") : printf("No\n");
 
 
-	// searching an element in linked list iterattivley
-	linked_list_search(head, 9)? printf("Yes\n") : printf("No\n");
+	// searching an element in linked list recursively
+	linked_list_search_recursive(head, 9)? printf("Yes\n") : printf("No\n");
 
 
-	// searching an element in linked list iterattivley
-	linked_list_search(head, 1)? printf("Yes\n") : printf("No\n");
+	// searching an element in linked list recursively
+	linked_list_search_recursive(head, 1)? printf("Yes\n") : printf("No\n");
 
 	return 0;
 }
