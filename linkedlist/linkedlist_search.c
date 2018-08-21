@@ -117,11 +117,11 @@ int main()
 	// printing the list with all elements
 	print_list(head);
 
-	// searching an element in linked list iterattively
+	// searching an element in linked list iteratively
 	linked_list_search(head, 21)? printf("Yes\n") : printf("No\n");
 
 
-	// searching an element in linked list iterattively
+	// searching an element in linked list iteratively
 	linked_list_search(head, 7)? printf("Yes\n") : printf("No\n");
 
 
