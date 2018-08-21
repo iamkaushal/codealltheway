@@ -88,7 +88,6 @@ int linked_list_search_recursive(struct node *head, int key)
 	// if key is found return 1;
 	if(head->data == key) return 1;
 
-
 	// recursive case
 	else return (linked_list_search_recursive(head->next, key));
 }
