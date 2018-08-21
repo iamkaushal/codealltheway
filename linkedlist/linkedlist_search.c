@@ -61,7 +61,7 @@ void print_list(struct node *head)
 	printf("\n");
 }
 
-// This funtion for a node with given key in a linked list iteratively
+// This funtion searches for a node with given key in a linked list iteratively
 // and takes pointer to head node and key to be searched as arguments
 int linked_list_search(struct node *head, int key)
 {
@@ -78,7 +78,7 @@ int linked_list_search(struct node *head, int key)
 	return 0;
 }
 
-// This funtion for a node with given key in a linked list recursively
+// This funtion searches for a node with given key in a linked list recursively
 // and takes pointer to head node and key to be searched as arguments
 int linked_list_search_recursive(struct node *head, int key)
 {
