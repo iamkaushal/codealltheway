@@ -44,23 +44,6 @@ void append(struct node **head_ref, int value)
 	trav->next = temp;
 }
 
-// This function deletes all the nodes from the linked list
-// and takes pointer to pointer of head node as parameter
-void delete_list(struct node **head)
-{
-	// declaring a temporary pointer to store the address of 
-	// current node while traversing the linked list
-	struct node *temp ;
-
-	// traversing the linked list to the end and store the address of
-	// the current node in the and free temp 
-	while((*head) != NULL)
-	{
-		temp = *head;
-		*head = (*head)->next;
-		free(temp);
-	}
-}
 
 // This function prints the linked list and takes the head pointer as 
 // its parameter
@@ -76,6 +59,36 @@ void print_list(struct node *head)
 
 	// printing new line after printing the whole linked list
 	printf("\n");
+}
+
+// This funtion calculates the length of a linked list iteratively
+// and takes pointer to head as argument
+int linked_list_length(struct node *head)
+{
+	// declaring a variable counter to store the length of linked
+	// list and initializing it to 0
+	int counter = 0;
+
+	// traversing the linked list to the end and increasing the counter 
+	while(head != NULL)
+	{
+		counter++;
+		head = head->next;
+	}
+
+	// return counter as it contains the length of the linked list
+	return counter;
+}
+
+// This funtion calculates the length of a linked list recursively
+// and takes pointer to head as argument
+int linked_list_length_recursive(struct node *head)
+{
+	// base case when head is NULL return 0
+	if(head == NULL) return 0;
+
+	// recursive case
+	else return ( 1 + linked_list_length_recursive(head->next));
 }
 
 
@@ -101,14 +114,17 @@ int main()
 
 	// printing the list with all elements
 	print_list(head);
+	
+	// calculating length using iterative function
+	int length = linked_list_length(head);
 
-	// deleting the whole linked list
-	delete_list(&head);
+	printf("length calculated iteratively: %d \n", length);
 
-	printf("Printing all the elemets : ");
+	// calculating length using recursive funstion 
+	length = linked_list_length_recursive(head);
 
-	// printing the list to verify
-	print_list(head);
+	printf("length calculated recursively: %d \n", length);
 
 	return 0;
 }
+

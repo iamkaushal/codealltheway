@@ -44,23 +44,6 @@ void append(struct node **head_ref, int value)
 	trav->next = temp;
 }
 
-// This function deletes all the nodes from the linked list
-// and takes pointer to pointer of head node as parameter
-void delete_list(struct node **head)
-{
-	// declaring a temporary pointer to store the address of 
-	// current node while traversing the linked list
-	struct node *temp ;
-
-	// traversing the linked list to the end and store the address of
-	// the current node in the and free temp 
-	while((*head) != NULL)
-	{
-		temp = *head;
-		*head = (*head)->next;
-		free(temp);
-	}
-}
 
 // This function prints the linked list and takes the head pointer as 
 // its parameter
@@ -76,6 +59,38 @@ void print_list(struct node *head)
 
 	// printing new line after printing the whole linked list
 	printf("\n");
+}
+
+// This funtion for a node with given key in a linked list iteratively
+// and takes pointer to head node and key to be searched as arguments
+int linked_list_search(struct node *head, int key)
+{
+
+	// traversing the linked list to the end  
+	while(head != NULL)
+	{
+		// if key is found, return 1
+		if(head->data == key) return 1;
+		head = head->next;
+	}
+
+	// if key is not found return 0
+	return 0;
+}
+
+// This funtion for a node with given key in a linked list recursively
+// and takes pointer to head node and key to be searched as arguments
+int linked_list_search_recursive(struct node *head, int key)
+{
+	// base case when head is NULL return 0
+	if(head == NULL) return 0;
+	
+	// if key is found return 1;
+	if(head->data == key) return 1;
+
+
+	// recursive case
+	else return (linked_list_search_recursive(head->next, key));
 }
 
 
@@ -101,14 +116,22 @@ int main()
 
 	// printing the list with all elements
 	print_list(head);
+	
+	// searching an element in linked list iterattivley
+	linked_list_search(head, 21)? printf("Yes\n") : printf("No\n");
 
-	// deleting the whole linked list
-	delete_list(&head);
 
-	printf("Printing all the elemets : ");
+	// searching an element in linked list iterattivley
+	linked_list_search(head, 7)? printf("Yes\n") : printf("No\n");
 
-	// printing the list to verify
-	print_list(head);
+
+	// searching an element in linked list iterattivley
+	linked_list_search(head, 9)? printf("Yes\n") : printf("No\n");
+
+
+	// searching an element in linked list iterattivley
+	linked_list_search(head, 1)? printf("Yes\n") : printf("No\n");
 
 	return 0;
 }
+
